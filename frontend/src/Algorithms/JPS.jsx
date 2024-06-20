@@ -16,11 +16,11 @@ async function jps(grid, startCell, endCell) {
       }
     }
 
-    const provider = new RpcProvider({ nodeUrl: "https://starknet-testnet.public.blastapi.io" }); // only for starknet-devnet-rs
+    const provider = new RpcProvider({ nodeUrl: "https://starknet-sepolia.public.blastapi.io/rpc/v0_7" }); // only for starknet-devnet-rs
 
-    const JPSClassAt = await provider.getClassAt("0x04d12d8652db5311bc38ad36ac82b2f3ae41fcbbb4ae7e991bd368b43e7ab3ae");
+    const JPSClassAt = await provider.getClassAt("0x069de5dbaaeb9a7c1e6e4b3219e5cbc25b97183f979b8fd8321daa468736d1e0");
 
-    const jpsContract = new Contract(JPSClassAt.abi, "0x04d12d8652db5311bc38ad36ac82b2f3ae41fcbbb4ae7e991bd368b43e7ab3ae", provider);
+    const jpsContract = new Contract(JPSClassAt.abi, "0x069de5dbaaeb9a7c1e6e4b3219e5cbc25b97183f979b8fd8321daa468736d1e0", provider);
     const callData = new CallData(JPSClassAt.abi);
 
     const myCallData = callData.compile("jps", {
